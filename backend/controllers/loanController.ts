@@ -1,12 +1,10 @@
 import { Request, Response } from 'express';
 
-// Sample data for demonstration
 const loans = [
   { id: 1, name: 'Personal Loan' },
   { id: 2, name: 'Home Loan' },
 ];
 
-// Controller Functions
 export const getLoans = async (req: Request, res: Response) => {
   res.status(200).json(loans);
 };

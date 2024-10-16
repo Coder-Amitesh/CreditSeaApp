@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../style.css'; // Ensure this is linked to your CSS file
-import img1 from '../assets/1.png'; // User photo or logo
+import '../style.css'; 
+import img1 from '../assets/1.png'; 
 import img2 from '../assets/2.png';
 import img3 from '../assets/3.png';
 import img4 from '../assets/4.png';
@@ -41,11 +41,11 @@ const VerifierDashboard: React.FC = () => {
   }, []);
 
   const handleSort = () => {
-    // Implement sorting logic here
+    
   };
 
   const handleFilter = () => {
-    // Implement filtering logic here
+    
   };
 
   if (loading) {

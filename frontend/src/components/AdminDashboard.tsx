@@ -41,11 +41,11 @@ const AdminDashboard: React.FC = () => {
   }, []);
 
   const handleSort = () => {
-    // Implement sorting logic here
+    
   };
 
   const handleFilter = () => {
-    // Implement filtering logic here
+    
   };
 
   if (loading) {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../style.css'; // Adjusted import statement
+import '../style.css'; 
 
 const UserDashboardLoan: React.FC = () => {
   const [loans, setLoans] = useState<any[]>([]);
@@ -11,7 +11,7 @@ const UserDashboardLoan: React.FC = () => {
 
   const fetchLoans = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/loans'); // Ensure this URL is correct
+      const response = await axios.get('http://localhost:5000/api/loans'); 
       setLoans(response.data);
     } catch (error) {
       console.error('Error fetching loans:', error);
@@ -20,15 +20,15 @@ const UserDashboardLoan: React.FC = () => {
 
   useEffect(() => {
     const fetchLoans = async () => {
-      setLoading(true); // Set loading to true before the request
+      setLoading(true); 
       try {
-        const response = await axios.get('http://localhost:5000/api/loans'); // Make sure the URL is correct
-        setLoans(response.data); // Set state with the fetched loans
+        const response = await axios.get('http://localhost:5000/api/loans'); 
+        setLoans(response.data); 
       } catch (error) {
         console.error('Error fetching loans:', error);
-        setErrorMessage('Failed to load loans.'); // Update error message state
+        setErrorMessage('Failed to load loans.'); 
       } finally {
-        setLoading(false); // Set loading to false after the request
+        setLoading(false); 
       }
     };
 

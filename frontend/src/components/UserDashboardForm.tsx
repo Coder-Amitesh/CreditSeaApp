@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../style.css'; // Adjust the path as necessary
+import '../style.css'; 
 
 const UserDashboardForm: React.FC = () => {
   const [formData, setFormData] = useState({

@@ -1,10 +1,10 @@
-// routes/borrower.ts
+// routes/borrower.ts Amitesh Singh
 import { Router } from 'express';
 import Borrower from '../models/Borrower';
 
 const router = Router();
 
-// Create a new borrower
+
 router.post('/', async (req, res) => {
   const { userId, loanId, loanAmount, status } = req.body;
 
@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Get all borrowers
+
 router.get('/', async (req, res) => {
   try {
     const borrowers = await Borrower.find();
@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get borrower by ID
+
 router.get('/:id', async (req, res) => {
   try {
     const borrower = await Borrower.findById(req.params.id);
@@ -44,7 +44,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Update borrower by ID
+
 router.put('/:id', async (req, res) => {
   try {
     const updatedBorrower = await Borrower.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -59,7 +59,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Delete borrower by ID
+
 router.delete('/:id', async (req, res) => {
   try {
     const deletedBorrower = await Borrower.findByIdAndDelete(req.params.id);

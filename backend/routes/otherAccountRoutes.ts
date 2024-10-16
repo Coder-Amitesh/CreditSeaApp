@@ -1,10 +1,10 @@
-// routes/otherAccount.ts
+// routes/otherAccount.ts Amitesh Singh
 import { Router } from 'express';
 import OtherAccount from '../models/OtherAccount';
 
 const router = Router();
 
-// Create a new other account entry
+
 router.post('/', async (req, res) => {
   const { userId, balance } = req.body;
 
@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Get all other accounts
+
 router.get('/', async (req, res) => {
   try {
     const otherAccounts = await OtherAccount.find();
@@ -40,7 +40,7 @@ router.get('/:userId', async (req, res) => {
   }
 });
 
-// Update other account by ID
+
 router.put('/:id', async (req, res) => {
   try {
     const updatedOtherAccount = await OtherAccount.findByIdAndUpdate(req.params.id, req.body, { new: true });

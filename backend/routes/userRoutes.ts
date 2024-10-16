@@ -9,11 +9,11 @@ import {
 
 const router = express.Router();
 
-// Define your routes
-router.get('/', getLoans); // Get all loans
-router.get('/:id', getLoanById); // Get loan by ID
-router.post('/', createLoan); // Create a new loan
-router.put('/:id', updateLoan); // Update loan by ID
-router.delete('/:id', deleteLoan); // Delete loan by ID
+
+router.get('/', getLoans); 
+router.get('/:id', getLoanById); 
+router.post('/', createLoan); 
+router.put('/:id', updateLoan); 
+router.delete('/:id', deleteLoan); 
 
 export default router;

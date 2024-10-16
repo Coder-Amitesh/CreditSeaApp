@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
-import UserModel, { IUser } from '../models/User'; // Ensure to import IUser for type safety
+import UserModel, { IUser } from '../models/User'; 
 
-// Get all users (for Admin Dashboard)
 export const getAllUsers = async (req: Request, res: Response) => {
   try {
     const users = await UserModel.find();
@@ -12,7 +11,7 @@ export const getAllUsers = async (req: Request, res: Response) => {
   }
 };
 
-// Get user by ID
+
 export const getUserById = async (req: Request, res: Response) => {
   try {
     const user = await UserModel.findById(req.params.id);
@@ -26,9 +25,9 @@ export const getUserById = async (req: Request, res: Response) => {
   }
 };
 
-// Create a new user
+
 export const createUser = async (req: Request, res: Response) => {
-  const { name, email, phone, role }: IUser = req.body; // Ensure role is typed as IUser
+  const { name, email, phone, role }: IUser = req.body; 
 
   try {
     const newUser = new UserModel({
@@ -46,16 +45,16 @@ export const createUser = async (req: Request, res: Response) => {
   }
 };
 
-// Update user by ID
+
 export const updateUser = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { name, email, phone, role }: IUser = req.body; // Ensure role is typed as IUser
+  const { name, email, phone, role }: IUser = req.body; 
 
   try {
     const updatedUser = await UserModel.findByIdAndUpdate(
       id,
       { name, email, phone, role },
-      { new: true } // Return the updated document
+      { new: true } 
     );
 
     if (!updatedUser) {
@@ -69,7 +68,7 @@ export const updateUser = async (req: Request, res: Response) => {
   }
 };
 
-// Delete user by ID
+
 export const deleteUser = async (req: Request, res: Response) => {
   const { id } = req.params;
 
@@ -78,25 +77,24 @@ export const deleteUser = async (req: Request, res: Response) => {
     if (!deletedUser) {
       return res.status(404).send('User not found');
     }
-    res.status(204).send(); // No content to send back
+    res.status(204).send(); 
   } catch (error) {
     console.error('Error deleting user:', error);
     res.status(500).send('Server Error');
   }
 };
 
-// Get users by role (for Admin Dashboard)
 export const getUsersByRole = async (req: Request, res: Response) => {
     const { role } = req.params;
   
-    // Ensure the role is valid
+    
     if (!['User', 'Verifier', 'Admin'].includes(role)) {
       return res.status(400).send('Invalid role');
     }
   
     try {
-      // Use role as a string literal type
-      const users = await UserModel.find({ role: role as 'User' | 'Verifier' | 'Admin' }); // Cast role to the correct type
+      
+      const users = await UserModel.find({ role: role as 'User' | 'Verifier' | 'Admin' }); 
       res.json(users);
     } catch (error) {
       console.error('Error fetching users by role:', error);

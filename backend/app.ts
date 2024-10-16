@@ -3,7 +3,7 @@ import loanRoutes from './routes/loanRoutes';
 
 const app = express();
 
-app.use(express.json()); // For parsing application/json
-app.use(loanRoutes); // Use loan routes
+app.use(express.json()); 
+app.use(loanRoutes); 
 
 export default app;

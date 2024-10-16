@@ -93,11 +93,11 @@
   }
   
   .dropdown a:hover {
-    background-color: #ecf0f1; /* Light grey on hover */
+    background-color: #ecf0f1; 
   }
   
   main {
-    padding: 2rem; /* Add some space around the main content */
+    padding: 2rem; 
   }
   .app {
     font-family: Arial, sans-serif;
