@@ -1,4 +1,4 @@
-##CrediSeaApp
+# CrediSeaApp
 
 This project is a Loan Management Application built using **TypeScript**, **Express.js**, and **MongoDB**. The system allows users to apply for loans, view their loan status, and manage their finances. The application features a backend API for handling loans, borrowers, users, savings accounts, and other financial accounts, and a frontend for user interaction.
 
