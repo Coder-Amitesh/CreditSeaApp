@@ -1,6 +1,5 @@
 # CreditSeaApp
-CreditSeaApp
-Install npm backend and frontend
+Install npm backend and frontend \\
 Amitesh Singh
 
 
