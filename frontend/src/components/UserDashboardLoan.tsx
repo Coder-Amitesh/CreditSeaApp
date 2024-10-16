@@ -8,15 +8,15 @@ const UserDashboardLoan: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('all');
+
   const fetchLoans = async () => {
     try {
-        const response = await axios.get('http://localhost:5000/api/loans'); // Ensure this URL is correct
-        setLoans(response.data);
+      const response = await axios.get('http://localhost:5000/api/loans'); // Ensure this URL is correct
+      setLoans(response.data);
     } catch (error) {
-        console.error('Error fetching loans:', error);
+      console.error('Error fetching loans:', error);
     }
-};
-
+  };
 
   useEffect(() => {
     const fetchLoans = async () => {
@@ -40,7 +40,8 @@ const UserDashboardLoan: React.FC = () => {
   }
 
   const filteredLoans = loans.filter(loan => {
-    const matchesSearch = loan.customerName.toLowerCase().includes(searchTerm.toLowerCase());
+    // Check if customerName exists before calling .toLowerCase()
+    const matchesSearch = loan.customerName && loan.customerName.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStatus = selectedStatus === 'all' || loan.status === selectedStatus;
     return matchesSearch && matchesStatus;
   });
@@ -95,7 +96,7 @@ const UserDashboardLoan: React.FC = () => {
           {filteredLoans.length > 0 ? (
             filteredLoans.map((loan) => (
               <tr key={loan.id}>
-                <td>{loan.customerName}</td>
+                <td>{loan.customerName || 'Unknown'}</td>
                 <td>{loan.dateApplied}</td>
                 <td>{loan.status}</td>
                 <td>{loan.loanOfficer}</td>
